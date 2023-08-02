@@ -113,7 +113,6 @@ venv.bak/
 # Generated Pelican files
 *.html
 *.json
-*.md
 *.xml
 
 # Virtual environment
