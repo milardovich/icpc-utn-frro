@@ -1,6 +1,6 @@
 Title: Resumen UTN ICPC Sessions #1
 Date: 2023-06-26 10:20
-Category: Eventos
+Category: Novedades
 Tags: ICPC, novedades, UTN
 Slug: icpc-sessions-resumen
 Authors: Sergio Milardovich

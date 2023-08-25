@@ -1,6 +1,6 @@
 Title: Training Camp 2023 en la UNLAM
 Date: 2023-07-31 00:00
-Category: Eventos
+Category: Novedades
 Tags: ICPC, novedades, UTN
 Slug: training-camp-unlam
 Authors: Sergio Milardovich
