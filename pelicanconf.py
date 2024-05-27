@@ -16,7 +16,9 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 MENUITEMS = (('Inicio', '/'),
+         ('¿Cómo Empezar?', '/como-empezar.html'),             
          ('Biblioteca', '/biblioteca.html'),
+         ('Prácticas', '/practicas.html'),                      
          ('Eventos', '/category/eventos.html'),
          ('Novedades', '/category/novedades.html'),
          )

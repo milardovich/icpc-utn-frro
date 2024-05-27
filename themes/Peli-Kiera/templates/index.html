@@ -6,48 +6,48 @@
         competencias de programación universitarias del estilo ACM-ICPC y similares.</p>
 
     <div class="mb-5">
-        <a href="{{ SITEURL }}/biblioteca.html" class="btn btn-primary btn-lg px-4">Enlaces Útiles</a>
+        <a href="{{ SITEURL }}/como-empezar.html" class="btn btn-success btn-lg px-4">Me interesa ¿cómo arranco?</a>
     </div>
     <hr class="col-3 col-md-2 mb-5">
 
     <div class="row g-5">
         <div class="col-md-6">
-            <h2 class="text-body-emphasis">Eventos</h2>
+            <h2 class="text-body-emphasis">Competencias</h2>
             <p style="text-align: justify;">Últimos eventos relacionados con programación competitiva.</p>
             <ul class="list-unstyled ps-0">
-                {% for article in articles_page.object_list if article.category.name == EVENTS_CATEGORY %}        
-                {% if loop.index <= EVENTS_COUNT %} 
-                <li>
+                {% for article in articles_page.object_list if article.category.name == EVENTS_CATEGORY %}
+                {% if loop.index <= EVENTS_COUNT %} <li>
                     <svg class="bi" width="16" height="16">
                         <use xlink:href="#trophy" />
-                    </svg> <time>{{ article.date|strftime('%d-%m-%Y') }}</time> <a title="Permalink a {{ article.title|striptags }}" class="icon-link mb-1" href="{{ SITEURL }}/{{ article.url }}"
-                        rel="noopener">
-                        
+                    </svg> <time>{{ article.date|strftime('%d-%m-%Y') }}</time> <a
+                        title="Permalink a {{ article.title|striptags }}" class="icon-link mb-1"
+                        href="{{ SITEURL }}/{{ article.url }}" rel="noopener">
+
                         {{ article.title }}
                     </a>
-                    
-                </li>
-                {% endif %}
-                {% endfor %}
+
+                    </li>
+                    {% endif %}
+                    {% endfor %}
             </ul>
         </div>
         <div class="col-md-6">
             <h2 class="text-body-emphasis">Novedades</h2>
             <p>Últimas novedades relacionadas con programación competitiva.</p>
             <ul class="list-unstyled ps-0">
-                {% for article in articles_page.object_list if article.category.name == NEWS_CATEGORY %}        
-                {% if loop.index <= NEWS_COUNT %} 
-                <li>
+                {% for article in articles_page.object_list if article.category.name == NEWS_CATEGORY %}
+                {% if loop.index <= NEWS_COUNT %} <li>
                     <svg class="bi" width="16" height="16">
                         <use xlink:href="#arrow-right-circle" />
-                    </svg> <time>{{ article.date|strftime('%d-%m-%Y') }}</time> <a title="Permalink a {{ article.title|striptags }}" class="icon-link mb-1" href="{{ SITEURL }}/{{ article.url }}"
-                        rel="noopener">
-                        
+                    </svg> <time>{{ article.date|strftime('%d-%m-%Y') }}</time> <a
+                        title="Permalink a {{ article.title|striptags }}" class="icon-link mb-1"
+                        href="{{ SITEURL }}/{{ article.url }}" rel="noopener">
+
                         {{ article.title }}
                     </a>
-                </li>
-                {% endif %}
-                {% endfor %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
             </ul>
         </div>
 </main>
