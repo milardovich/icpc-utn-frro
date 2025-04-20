@@ -18,6 +18,12 @@ Summary: Prácticas del taller de ICPC en UTN FRRO
 * [Práctica 4: Ejercicios de Grafos](https://vjudge.net/contest/631108)
 Contraseña: grafos2024
 
+* [Práctica 5: Teoría de Juegos](https://vjudge.net/contest/653399)
+Contraseña: grundy
+
+* [Práctica 6: Ejercicios de Segment Tree](https://vjudge.net/contest/654969)
+Contraseña: segment2024
+
 <br/><br/>
 #### TAPs de años anteriores
 
@@ -42,3 +48,28 @@ Contraseña: tap2016
 * Los TAPS del 2017 al 2022 los encuentran en [este grupo](https://codeforces.com/group/YjFmW2O15Q/contests) de CodeForces.
 
 * [TAP 2023](https://codeforces.com/blog/entry/120546)
+
+<br/><br/>
+#### Regionales de años anteriores
+
+* [2013-2014 ACM-ICPC Brazil Subregional Programming Contest](https://codeforces.com/gym/101473)
+
+* [2018-2019 ACM-ICPC Brazil Subregional Programming Contest](https://codeforces.com/gym/101908)
+
+* [2020-2021 ACM-ICPC Brazil Subregional Programming Contest](https://codeforces.com/gym/102861)
+
+* [2020-2021 ACM-ICPC Latin American Regional Programming Contest](https://codeforces.com/gym/103185)
+
+* [2021-2022 ACM-ICPC Brazil Subregional Programming Contest](https://codeforces.com/gym/103388)
+
+* [2021-2022 ACM-ICPC Latin American Regional Programming Contest](https://codeforces.com/gym/103640)
+
+* [2022-2023 ICPC Brazil Subregional Programming Contest](https://codeforces.com/gym/103960)
+
+* [2022-2023 ACM-ICPC Latin American Regional Programming Contest](https://codeforces.com/gym/104252)
+
+* [2023-2024 ICPC Brazil Subregional Programming Contest](https://codeforces.com/gym/104555)
+
+* [2023-2024 ACM-ICPC Latin American Regional Programming Contest](https://codeforces.com/gym/104736)
+
+* [The 2024 ICPC Latin America Championship](https://codeforces.com/gym/105053)
