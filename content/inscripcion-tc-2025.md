@@ -1,6 +1,6 @@
 Title: Training Camp 2025
 Date: 2025-04-20 13:30
-Category: Novedades
+Category: Eventos
 Tags: ICPC, novedades, UTN FRSF
 Slug: inscripcion-training-camp-icpc-2025
 Authors: Sergio Milardovich

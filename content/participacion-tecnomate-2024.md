@@ -1,6 +1,6 @@
 Title: Participación de la UTN en la Tecnomate
 Date: 2024-09-29 00:00
-Category: Eventos
+Category: Novedades
 Tags: ICPC, Santa Fe, Tecnomate, UTN
 Slug: participacion-tecnomate-2024
 Authors: Sergio Milardovich

@@ -1,6 +1,6 @@
 Title: Training Camp 2024
 Date: 2024-04-12 13:30
-Category: Novedades
+Category: Eventos
 Tags: ICPC, novedades, UNR
 Slug: inscripcion-training-camp-icpc-2024
 Authors: Sergio Milardovich

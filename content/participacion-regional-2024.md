@@ -1,6 +1,6 @@
 Title: Participación de la UTN en el Regional 2024
 Date: 2024-10-11 00:00
-Category: Eventos
+Category: Novedades
 Tags: ICPC, Regional, Buenos Aires
 Slug: participacion-regional-2024
 Authors: Sergio Milardovich

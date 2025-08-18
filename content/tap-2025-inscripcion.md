@@ -1,6 +1,6 @@
 Title: TAP 2025 
 Date: 2025-06-27 08:45
-Category: Novedades
+Category: Eventos
 Tags: ICPC, novedades, UNR
 Slug: inscripcion-tap-2025
 Authors: Sergio Milardovich
@@ -16,7 +16,7 @@ Pre-inscripción abierta en [https://forms.gle/PqRnGgsLcE8vNZMF7](https://forms.
 
 ## Información general
 
-El 23 de agosto se llevará a cabo la decimoquinta edición del Torneo Argentino de Programación, en el que compiten equipos de 3 estudiantes cada uno de instituciones de educación superior de Argentina.
+El 23 de agosto se llevará a cabo la decimoquinta edición del Torneo Argentino de Programación, en el que compiten equipos de 3 estudiantes cada uno de instituciones de educación superior de Argentina. Para nuestra ciudad, el mismo **la sede será nuestra UTN - FFRO (Zeballos 1341), y el mismo se desarrollará desde las 9AM hasta las 8PM**.
 
 El torneo consiste en resolver un conjunto de problemas algorítmicos en un plazo de 5 horas. La solución a cada problema es un programa que se envía mediante un sistema especial al jurado. El jurado corrige en el momento mediante casos de prueba secretos (*test de caja negra*) y el equipo se entera al instante si la solución enviada es correcta, de manera que puede corregirla y reenviarla tantas veces como sea necesario.
 

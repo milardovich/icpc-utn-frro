@@ -1,6 +1,6 @@
 Title: TAP 2024 
 Date: 2024-07-26 08:45
-Category: Novedades
+Category: Eventos
 Tags: ICPC, novedades, UNR
 Slug: inscripcion-tap-2024
 Authors: Sergio Milardovich
