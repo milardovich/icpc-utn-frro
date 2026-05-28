@@ -13,16 +13,26 @@ Summary: Prácticas del taller de ICPC en UTN FRRO
 
 * [Práctica 2: Ejercicios de Búsqueda Binaria](https://codeforces.com/group/ajXOa7UNgq/contest/518131)
 
-* [Práctica 3: Ejercicios de Programación Dinámica](https://vjudge.net/contest/627201)
+* [Práctica 3: Ejercicios de Estructuras de Datos](https://vjudge.net/contest/810800)
+Contraseña: estructurasutn
 
-* [Práctica 4: Ejercicios de Grafos](https://vjudge.net/contest/631108)
+* [Práctica 4: Ejercicios de Programación Dinámica](https://polijuez.ar/post/2-contest-practica-dp)
+
+* [Práctica 5: Ejercicios de Grafos](https://vjudge.net/contest/631108)
 Contraseña: grafos2024
 
-* [Práctica 5: Teoría de Juegos](https://vjudge.net/contest/653399)
+* [Práctica 6: Teoría de Juegos](https://vjudge.net/contest/653399)
 Contraseña: grundy
 
-* [Práctica 6: Ejercicios de Segment Tree](https://vjudge.net/contest/654969)
+* [Práctica 7: Ejercicios de Segment Tree](https://vjudge.net/contest/654969)
 Contraseña: segment2024
+
+* [Práctica 8: Ejercicios de Geometría](https://vjudge.net/contest/748379)
+Contraseña: geometriautn
+
+* [Práctica 9.1: Ejercicios de Flujo I](https://vjudge.net/contest/274279#overview)
+* [Práctica 9.2: Ejercicios de Flujo II](https://vjudge.net/contest/274280#overview)
+
 
 <br/><br/>
 #### TAPs de años anteriores
@@ -48,6 +58,12 @@ Contraseña: tap2016
 * Los TAPS del 2017 al 2022 los encuentran en [este grupo](https://codeforces.com/group/YjFmW2O15Q/contests) de CodeForces.
 
 * [TAP 2023](https://codeforces.com/blog/entry/120546)
+
+* [TAP 2024](https://codeforces.com/gym/105321)
+
+* [TAP 2025](https://codeforces.com/gym/106054)
+
+
 
 <br/><br/>
 #### Regionales de años anteriores
