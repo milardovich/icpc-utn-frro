@@ -121,3 +121,7 @@ venv/
 # Backup files
 *~
 *.swp
+
+# Las plantillas del tema son código fuente, no salida generada por Pelican
+# (la regla `*.html` de más arriba, si no, las deja afuera).
+!themes/**/templates/*.html

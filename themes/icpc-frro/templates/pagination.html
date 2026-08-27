@@ -1,0 +1,19 @@
+{% if DEFAULT_PAGINATION and articles_page.has_other_pages() %}
+<nav aria-label="Paginación">
+    <ul class="pagination">
+        {% if articles_page.has_previous() %}
+        <li><a href="{{ SITEURL }}/{{ articles_previous_page.url }}" rel="prev">&laquo; Anterior</a></li>
+        {% endif %}
+        {% for p in range(1, articles_paginator.num_pages + 1) %}
+        {% if p >= articles_page.number - 3 and p <= articles_page.number + 3 %}
+        <li class="{{ 'active' if p == articles_page.number }}">
+            <a href="{{ SITEURL }}/{{ page_name }}{{ '' if p == 1 else p }}.html">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% if articles_page.has_next() %}
+        <li><a href="{{ SITEURL }}/{{ articles_next_page.url }}" rel="next">Siguiente &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }}{% endblock title %}
+
+{% block content %}
+{# --- Recolección de artículos por categoría --------------------------------- #}
+{% set ns = namespace(eventos=[], novedades=[], proximos=[]) %}
+{% for article in articles %}
+{% if article.category.name == EVENTS_CATEGORY %}
+{% set ns.eventos = ns.eventos + [article] %}
+{# Event_Date (opcional, YYYY-MM-DD) marca la fecha real del evento: si todavía
+   no pasó, el artículo entra en el panel de próximas competencias. #}
+{% if article.event_date and article.event_date|replace('-', '') >= TODAY %}
+{% set ns.proximos = ns.proximos + [article] %}
+{% endif %}
+{% elif article.category.name == NEWS_CATEGORY %}
+{% set ns.novedades = ns.novedades + [article] %}
+{% endif %}
+{% endfor %}
+
+<section class="hero">
+    <div class="wrap">
+        <div>
+            <span class="hero-eyebrow">UTN · Facultad Regional Rosario</span>
+            <h1>Entrenamos para competir <em>resolviendo problemas</em></h1>
+            <p class="hero-lead">Somos la comunidad de programación competitiva de la UTN-FRRO. Preparamos equipos para
+                el ICPC, el Torneo Argentino de Programación y las competencias de la región. No hace falta experiencia
+                previa: hace falta ganas de pensar problemas.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="{{ SITEURL }}/como-empezar.html">
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>
+                    Me interesa, ¿cómo arranco?
+                </a>
+                <a class="btn btn-ghost" href="{{ SITEURL }}/practicas.html">Ver las prácticas</a>
+            </div>
+        </div>
+
+        <aside class="hero-panel">
+            {% if ns.proximos %}
+            <h2>Próximas competencias</h2>
+            <ul>
+                {% for article in (ns.proximos | sort(attribute='event_date'))[:3] %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        <time datetime="{{ article.event_date }}">{{ article.event_date.split('-')|reverse|join('/') }}</time>
+                        {{ article.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <h2>Últimas competencias</h2>
+            <ul>
+                {% for article in ns.eventos[:3] %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        <time datetime="{{ article.date }}">{{ article.date|strftime('%d/%m/%Y') }}</time>
+                        {{ article.title }}
+                    </a>
+                </li>
+                {% else %}
+                <p class="panel-empty">Pronto vamos a publicar el calendario de la próxima temporada.</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </aside>
+    </div>
+</section>
+
+<section class="section">
+    <div class="wrap layout">
+        <div>
+            <div class="section-head">
+                <h2>Competencias</h2>
+                <a class="more" href="{{ SITEURL }}/category/eventos.html">Ver todas →</a>
+            </div>
+            <div class="card-grid">
+                {% for article in ns.eventos[:EVENTS_COUNT] %}
+                <article class="card">
+                    {% set proxima = article.event_date and article.event_date|replace('-', '') >= TODAY %}
+                    <span class="card-date {{ 'card-date--accent' if proxima else '' }}">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935z"/></svg>
+                        {% if proxima %}
+                        <time datetime="{{ article.event_date }}">{{ article.event_date.split('-')|reverse|join('/') }}</time>
+                        {% else %}
+                        <time datetime="{{ article.date }}">{{ article.date|strftime('%d/%m/%Y') }}</time>
+                        {% endif %}
+                    </span>
+                    <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+                    {% set resumen = article.summary|striptags|trim %}
+                    {% if resumen and resumen != article.title|striptags|trim %}
+                    <p>{{ resumen|truncate(135) }}</p>
+                    {% endif %}
+                    <div class="card-foot">
+                        <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Leer más</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="section-head" style="margin-top: 3rem;">
+                <h2>Novedades</h2>
+                <a class="more" href="{{ SITEURL }}/category/novedades.html">Ver todas →</a>
+            </div>
+            <ul class="newslist">
+                {% for article in ns.novedades[:NEWS_COUNT] %}
+                <li>
+                    <time datetime="{{ article.date }}">{{ article.date|strftime('%d/%m/%Y') }}</time>
+                    <div>
+                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                        {% set resumen = article.summary|striptags|trim %}
+                        {% if resumen and resumen != article.title|striptags|trim %}
+                        <span class="newslist-sum">{{ resumen|truncate(120) }}</span>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <aside class="side">
+            <div class="box box--accent">
+                <h2 class="box-title">Empezá por acá</h2>
+                <div class="box-body">
+                    <p>¿Nunca competiste? Armamos una guía con los libros, videos y prácticas para arrancar de cero.</p>
+                    <a class="btn btn-primary btn-sm" href="{{ SITEURL }}/como-empezar.html">Ver la guía</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2 class="box-title">Enlaces rápidos</h2>
+                <div class="box-body">
+                    <ul class="linklist">
+                        <li><a href="{{ SITEURL }}/practicas.html">Prácticas del taller</a></li>
+                        <li><a href="{{ SITEURL }}/biblioteca.html">Biblioteca y material</a></li>
+                        <li><a href="https://codeforces.com/group/ajXOa7UNgq/" target="_blank" rel="noopener">Grupo de Codeforces</a></li>
+                        <li><a href="https://icpc.global/regionals/finder/TAP" target="_blank" rel="noopener">Inscripción al TAP</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box box--dark">
+                <h2 class="box-title">Sumate a la comunidad</h2>
+                <div class="box-body">
+                    <p>Enterate de talleres, competencias e inscripciones.</p>
+                    <ul class="linklist">
+                        <li><a href="https://chat.whatsapp.com/HKAINorPbfJ7hHjLBuP4Y8" target="_blank" rel="noopener">Canal de WhatsApp</a></li>
+                        <li><a href="https://groups.google.com/g/icpc-rosario" target="_blank" rel="noopener">Lista de correo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<section class="section section--soft">
+    <div class="wrap">
+        <p class="eyebrow">Cómo funciona</p>
+        <div class="section-head">
+            <h2>De cero a competir</h2>
+            <a class="more" href="{{ SITEURL }}/como-empezar.html">La guía completa →</a>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <h3>Aprendé lo básico</h3>
+                <p>Con saber programar en cualquier lenguaje alcanza para arrancar. Te dejamos libros, clases grabadas
+                    y los temas por los que conviene empezar.</p>
+            </div>
+            <div class="step">
+                <h3>Practicá seguido</h3>
+                <p>Usamos Codeforces y vjudge. Publicamos las prácticas del taller ordenadas por tema: búsqueda binaria,
+                    estructuras, DP, grafos y más.</p>
+            </div>
+            <div class="step">
+                <h3>Competí en equipo</h3>
+                <p>Equipos de tres, una computadora, cinco horas. Participamos del TAP, del ICPC regional y de las
+                    competencias de la región.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section sponsors">
+    <div class="wrap">
+        <p class="sponsors-label">Organizan y acompañan</p>
+        <div class="sponsors-row">
+            <a href="https://www.frro.utn.edu.ar/" target="_blank" rel="noopener">
+                <img class="logo-sq" src="{{ SITEURL }}/images/isi-utn-rosario.png" alt="Ingeniería en Sistemas de Información — UTN Rosario" loading="lazy" />
+            </a>
+            <a href="https://renaiss.io/" target="_blank" rel="noopener">
+                <img class="logo-wide" src="{{ SITEURL }}/images/renaiss-logo.png" alt="Renaiss" loading="lazy" />
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock content %}

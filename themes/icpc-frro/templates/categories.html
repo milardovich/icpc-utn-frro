@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% block title %}Categorías — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{{ m.listhead('Categorías', 'Las secciones en las que se organiza el contenido del sitio.', 'Categorías') }}
+<div class="wrap prose" style="max-width: 900px;">
+    <ul class="taglist">
+        {% for category, articles in categories|sort %}
+        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }} <span class="count">{{ articles|count }}</span></a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% set periodo = period | reverse | join(' ') %}
+{% block title %}Archivo {{ periodo }} — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{{ m.listhead('Archivo · ' ~ periodo, none, periodo) }}
+<div class="wrap prose" style="max-width: 900px;">
+    {{ m.archive_list(dates) }}
+</div>
+{% endblock %}

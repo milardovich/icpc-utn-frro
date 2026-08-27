@@ -1,0 +1,31 @@
+{# Listado de artículos agrupado por año #}
+{% macro archive_list(items) %}
+{% set ns = namespace(year=none) %}
+{% for article in items %}
+{% set year = article.date|strftime('%Y') %}
+{% if year != ns.year %}
+{% if not loop.first %}</ul>{% endif %}
+<h2 class="year-head">{{ year }}</h2>
+<ul class="archive">
+    {% set ns.year = year %}
+    {% endif %}
+    <li>
+        <time datetime="{{ article.date }}">{{ article.date|strftime('%d/%m/%Y') }}</time>
+        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+    </li>
+    {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+    {% endmacro %}
+
+    {# Encabezado de página de listado #}
+    {% macro listhead(title, subtitle, crumb) %}
+    <div class="pagehead">
+        <div class="wrap">
+            <nav class="crumbs" aria-label="Migas de pan">
+                <a href="{{ SITEURL }}/">Inicio</a><span>/</span>{{ crumb }}
+            </nav>
+            <h1>{{ title }}</h1>
+            {% if subtitle %}<p class="pagehead-sum">{{ subtitle }}</p>{% endif %}
+        </div>
+    </div>
+    {% endmacro %}

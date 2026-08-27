@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% block title %}{{ category }} — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{% if category.name == EVENTS_CATEGORY %}
+{% set bajada = 'Competencias, torneos y jornadas de programación competitiva en las que participamos u organizamos.' %}
+{% elif category.name == NEWS_CATEGORY %}
+{% set bajada = 'Novedades del taller, inscripciones, material nuevo y resultados de la comunidad.' %}
+{% else %}
+{% set bajada = none %}
+{% endif %}
+{{ m.listhead(category, bajada, category) }}
+
+<div class="wrap prose" style="max-width: 900px;">
+    {{ m.archive_list(articles_page.object_list) }}
+    {% include 'pagination.html' %}
+</div>
+{% endblock %}

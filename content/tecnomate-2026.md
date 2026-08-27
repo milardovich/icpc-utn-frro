@@ -2,6 +2,7 @@ Title: TecnoMate 2026 - La competencia de programación de la UTN Santa Fe
 Date: 2026-08-14 10:00
 Category: Eventos
 Tags: ICPC, Santa Fe, Tecnomate, UTN
+Event_Date: 2026-10-23
 Slug: tecnomate-2026
 Authors: Sergio Milardovich
 Summary: 14ª edición de TecnoMate, la competencia de programación de la UTN Facultad Regional Santa Fe, el viernes 23 de octubre de 2026

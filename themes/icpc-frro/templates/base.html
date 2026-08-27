@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+
+<head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{{ SITEDESCRIPTION|default('Comunidad de programación competitiva de la UTN Facultad Regional Rosario: talleres, competencias ICPC, material de estudio y prácticas.') }}{% endblock description %}" />
+    <meta name="theme-color" content="#0b4f9e" />
+
+    <link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" />
+
+    {% block opengraph %}
+    <meta property="og:site_name" content="{{ SITENAME }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ SITENAME }}" />
+    {% endblock opengraph %}
+
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+        type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+        type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% endblock head %}
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+    <div class="topbar">
+        <div class="wrap">
+            <span class="topbar-institucion">Universidad Tecnológica Nacional · Facultad Regional Rosario</span>
+            <nav class="topbar-links" aria-label="Enlaces institucionales">
+                <a href="https://www.frro.utn.edu.ar/" target="_blank" rel="noopener">UTN FRRO</a>
+                <a href="https://icpc.global/" target="_blank" rel="noopener">ICPC Global</a>
+                <a href="mailto:smilardovich@frro.utn.edu.ar">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="masthead">
+        <div class="wrap">
+            <a class="brand" href="{{ SITEURL }}/">
+                <svg class="brand-mark" viewBox="0 0 595.3 699.4" fill="currentColor" aria-hidden="true">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="m246.6 0h102v190.8c80.8-22.4 140.4-96.7 140.4-184.4h106.3c0 146.5-106.8 268.9-246.6 293.2v4.4h233.9v104.2h-214.4c130 31.8 227 149.5 227 289.1h-106.2c0-87.7-59.6-162-140.3-184.4v186.5h-102v-186.5c-80.7 22.4-140.3 96.7-140.3 184.4h-106.4c0-139.6 97-257.3 227-289.1h-214.2v-104.2h233.9v-4.4c-139.9-24.3-246.7-146.7-246.7-293.2h106.3c0 87.7 59.6 162 140.3 184.4z" />
+                </svg>
+                <span class="brand-text">
+                    <span class="brand-name">Programación Competitiva</span>
+                    <span class="brand-sub">UTN · FRRO · ACM-ICPC</span>
+                </span>
+            </a>
+            <div class="masthead-aside">
+                <a class="btn btn-primary btn-sm" href="{{ SITEURL }}/como-empezar.html">Sumate al taller</a>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 3h14v2H1V3zm0 4h14v2H1V7zm0 4h14v2H1v-2z" />
+                    </svg>
+                    Menú
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="mainnav" id="menu-principal" aria-label="Navegación principal">
+        <div class="wrap">
+            <ul>
+                {% set current = output_file|default('') %}
+                {% for title, link in MENUITEMS %}
+                {% set target = link.lstrip('/') %}
+                {% set is_active = (target == current) or (target == '' and current == 'index.html') %}
+                <li><a class="{{ 'is-active' if is_active }}" href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="site-main" id="contenido">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="site-footer">
+        <div class="wrap footer-cols">
+            <div>
+                <div class="footer-brand">
+                    <svg viewBox="0 0 595.3 699.4" fill="currentColor" aria-hidden="true">
+                        <path clip-rule="evenodd" fill-rule="evenodd"
+                            d="m246.6 0h102v190.8c80.8-22.4 140.4-96.7 140.4-184.4h106.3c0 146.5-106.8 268.9-246.6 293.2v4.4h233.9v104.2h-214.4c130 31.8 227 149.5 227 289.1h-106.2c0-87.7-59.6-162-140.3-184.4v186.5h-102v-186.5c-80.7 22.4-140.3 96.7-140.3 184.4h-106.4c0-139.6 97-257.3 227-289.1h-214.2v-104.2h233.9v-4.4c-139.9-24.3-246.7-146.7-246.7-293.2h106.3c0 87.7 59.6 162 140.3 184.4z" />
+                    </svg>
+                    <strong>Programación Competitiva UTN-FRRO</strong>
+                </div>
+                <p>Espacio para estudiantes de la UTN Facultad Regional Rosario interesados en competencias de
+                    programación del estilo ACM-ICPC.</p>
+                <p><a href="mailto:smilardovich@frro.utn.edu.ar">smilardovich@frro.utn.edu.ar</a></p>
+            </div>
+            <div>
+                <h2>El sitio</h2>
+                <ul>
+                    {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <h2>Comunidad</h2>
+                <ul>
+                    <li><a href="https://groups.google.com/g/icpc-rosario" target="_blank" rel="noopener">Lista de correo</a></li>
+                    <li><a href="https://chat.whatsapp.com/HKAINorPbfJ7hHjLBuP4Y8" target="_blank" rel="noopener">Canal de WhatsApp</a></li>
+                    <li><a href="https://codeforces.com/group/ajXOa7UNgq/" target="_blank" rel="noopener">Grupo de Codeforces</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Competencias</h2>
+                <ul>
+                    <li><a href="https://icpc.global/" target="_blank" rel="noopener">ICPC</a></li>
+                    <li><a href="https://icpc.global/regionals/finder/TAP" target="_blank" rel="noopener">TAP</a></li>
+                    <li><a href="https://tecnomate.xyz/" target="_blank" rel="noopener">TecnoMate</a></li>
+                    <li><a href="https://www.pc-arg.com/" target="_blank" rel="noopener">Training Camp Argentina</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap footer-legal">
+            <p>{{ COPYRIGHT_YEAR|default('2026') }} Universidad Tecnológica Nacional — Facultad Regional Rosario.
+                Todo el contenido se publica bajo licencia
+                <a href="http://wiki.creativecommons.org/Public_domain" target="_blank" rel="noopener">CC de dominio
+                    público</a> salvo que se indique lo contrario.</p>
+            <p>Sitio mantenido por <a href="https://milardovich.com.ar/" target="_blank" rel="noopener">Sergio
+                    Milardovich</a> y colaboradores. Hecho con
+                <a href="https://getpelican.com/" target="_blank" rel="noopener">Pelican</a>.</p>
+        </div>
+    </footer>
+
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/site.js" defer></script>
+    {% include 'analytics.html' %}
+</body>
+
+</html>

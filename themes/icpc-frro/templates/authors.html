@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% block title %}Autores — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{{ m.listhead('Autores', none, 'Autores') }}
+<div class="wrap prose" style="max-width: 900px;">
+    <ul class="taglist">
+        {% for author, articles in authors|sort %}
+        <li><a href="{{ SITEURL }}/{{ author.url }}">{{ author }} <span class="count">{{ articles|count }}</span></a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

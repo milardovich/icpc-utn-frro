@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% block title %}#{{ tag }} — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{{ m.listhead('#' ~ tag, 'Artículos etiquetados con «' ~ tag ~ '».', '#' ~ tag) }}
+<div class="wrap prose" style="max-width: 900px;">
+    {{ m.archive_list(articles_page.object_list) }}
+    {% include 'pagination.html' %}
+</div>
+{% endblock %}

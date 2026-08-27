@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% block title %}Etiquetas — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{{ m.listhead('Etiquetas', 'Todos los temas que se tocaron en el sitio.', 'Etiquetas') }}
+<div class="wrap prose" style="max-width: 900px;">
+    <ul class="taglist">
+        {% for tag, articles in tags|sort %}
+        <li><a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }} <span class="count">{{ articles|count }}</span></a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

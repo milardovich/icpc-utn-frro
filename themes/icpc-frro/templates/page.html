@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ page.lang }}{% endblock %}
+{% block title %}{{ page.title|striptags }} — {{ SITENAME }}{% endblock %}
+{% block description %}{{ page.summary|striptags|truncate(180) }}{% endblock %}
+
+{% block content %}
+<div class="pagehead">
+    <div class="wrap">
+        <nav class="crumbs" aria-label="Migas de pan">
+            <a href="{{ SITEURL }}/">Inicio</a><span>/</span>{{ page.title|striptags|truncate(48) }}
+        </nav>
+        <h1>{{ page.title }}</h1>
+        {% if page.summary %}
+        <p class="pagehead-sum">{{ page.summary|striptags }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="wrap prose" style="max-width: 900px;">
+    {% import 'translations.html' as translations with context %}
+    {{ translations.translations_for(page) }}
+    {{ page.content }}
+    {% if page.modified %}
+    <p class="meta">Actualizado el {{ page.modified|strftime('%d/%m/%Y') }}</p>
+    {% endif %}
+</div>
+{% endblock %}

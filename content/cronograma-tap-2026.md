@@ -2,6 +2,7 @@ Title: TAP 2026 - Cronograma Oficial
 Date: 2026-08-25 18:00
 Category: Eventos
 Tags: ICPC, TAP, UTN, Rosario, AAPC, Renaiss
+Event_Date: 2026-08-29
 Slug: cronograma-tap-2026
 Authors: Sergio Milardovich
 Summary: Ya está el cronograma oficial del Torneo Argentino de Programación 2026 en la sede Rosario, este sábado 29 de agosto, con el auspicio de Renaiss

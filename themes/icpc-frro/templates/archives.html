@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% import '_macros.html' as m with context %}
+{% block title %}Archivo — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+{{ m.listhead('Archivo', 'Todo lo publicado en el sitio, del más nuevo al más viejo.', 'Archivo') }}
+<div class="wrap prose" style="max-width: 900px;">
+    {{ m.archive_list(dates) }}
+</div>
+{% endblock %}

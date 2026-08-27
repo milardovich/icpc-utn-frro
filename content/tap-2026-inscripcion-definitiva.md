@@ -10,7 +10,7 @@ Summary: Todos los participantes del TAP 2026 deben completar la inscripción de
 
 **Sábado 29 de agosto de 2026**
 
-<div class="alert alert-warning" role="alert" style="border-left: 6px solid #712cf9;">
+<div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">⚠️ IMPORTANTE — Todos los participantes del TAP 2026 deben:</h4>
 <ol>
 <li>Hacer la <strong>inscripción definitiva</strong> en el sitio web de la ICPC: <a href="https://icpc.global/regionals/finder/TAP"><strong>https://icpc.global/regionals/finder/TAP</strong></a>. Podés guiarte con el <a href="../files/InscripcionDefinitivaTAP.pdf"><strong>instructivo de inscripción</strong></a>.</li>

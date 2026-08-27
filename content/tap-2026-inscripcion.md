@@ -12,7 +12,7 @@ Summary: Inscripción al 16º Torneo Argentino de Programación
 
 ![ my_image](../images/tap2026-1.png "16º Torneo Argentino de Programación"){.centered-image}
 
-<div class="alert alert-warning" role="alert" style="border-left: 6px solid #712cf9;">
+<div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">⚠️ IMPORTANTE — Participantes de la sede Rosario</h4>
 <p>Si vas a competir en la sede <strong>Rosario (UTN - FRRO)</strong>, el orden de la inscripción es <strong>obligatorio</strong>:</p>
 <ol>
