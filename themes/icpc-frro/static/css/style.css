@@ -521,36 +521,6 @@ table { border-collapse: collapse; width: 100%; }
 .step h3 { font-size: 1.02rem; margin-bottom: .35rem; }
 .step p { font-size: .92rem; color: var(--ink-2); margin: 0; }
 
-/* Franja de sponsors */
-.sponsors { text-align: center; }
-.sponsors-label {
-  font-family: var(--mono);
-  font-size: .72rem;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  font-weight: 700;
-  margin-bottom: 1.4rem;
-}
-.sponsors-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem 3.5rem;
-}
-.sponsors-row img {
-  width: auto;
-  filter: grayscale(1);
-  opacity: .75;
-  transition: filter .2s ease, opacity .2s ease;
-}
-/* Los logos se normalizan ópticamente: los cuadrados necesitan más alto que
-   los apaisados para pesar lo mismo en la fila. */
-.sponsors-row .logo-sq { max-height: 82px; }
-.sponsors-row .logo-wide { max-height: 46px; }
-.sponsors-row a:hover img { filter: none; opacity: 1; }
-
 /* --------------------------------------------------------------------------
    8. Aside / cajas laterales
    -------------------------------------------------------------------------- */
