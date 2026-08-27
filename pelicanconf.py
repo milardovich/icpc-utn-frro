@@ -29,7 +29,7 @@ THEME = 'themes/Peli-Kiera'
 
 EVENTS_COUNT = 5
 NEWS_COUNT = 5
-STATIC_PATHS = ["images"]
+STATIC_PATHS = ["images", "files"]
 NEWS_CATEGORY = 'Novedades'
 EVENTS_CATEGORY = 'Eventos'
 # Uncomment following line if you want document-relative URLs when developing
